@@ -1,0 +1,154 @@
+/* Load the localy stored font (woff/woff2) files from 'fonts' folder */
+@font-face {
+  /* Set the name of the font */
+  font-family: "Geomanist Bold";
+  /* Get the data for the font */
+  src: url("fonts/geomanist-bold.woff2");
+  /* Set style and weight of the font */
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* Rule for all elements */
+* {
+  /* Setting the box-sizing, so the width of the box
+    includes the border and padding */
+  box-sizing: border-box;
+}
+
+/* Rule for the body */
+body {
+  /* --------------------------------------------------- */
+  /* Won't be used since we don't want google to get data from  our users */
+  /* Use the custom font family, taken from google fonts */
+  /* font-family: "RocknRoll One", sans-serif; */
+  /* --------------------------------------------------- */
+  /* Use the newly added 'Geomanist Bold' font */
+  font-family: "Geomanist Bold", sans-serif;
+  line-height: 1;
+  font-size: 100%;
+  margin: 0;
+  /* In this example we always use uppercase letters, so I added 
+  it directly to the body */
+  text-transform: uppercase;
+}
+
+/* Rules for the page header */
+header {
+  /* Position fixed set the object in a fixed position on the 
+    page, where it wont move from */
+  position: fixed;
+  /* z-index is used to position an element in front or behind another 
+  element, default value is 0, and the higher the number the more in 
+  front it is */
+  /* Here the z-index is 2, so it is above all elements without a 
+  z-index or a z-index of 1 */
+  z-index: 2;
+  background-color: #fff;
+  height: 88px;
+  width: 100%;
+  top: 0;
+}
+
+h1 {
+  font-size: 5rem;
+  margin: 0;
+  font-weight: 900;
+  margin-left: 35px;
+}
+
+/* Rules for the main part, containing all animal data cards */
+main {
+  /* The main part starts at top = 0, since the header is fixed and 
+  won't be recognized, so we move the main part down so he is displayed 
+  below the header */
+  margin-top: 88px;
+}
+/* Rule for the card -> the box 
+containing the information for one animal */
+.card {
+  height: 350px;
+  width: 100%;
+  /* Setting the position to relative, used so 'position: absolute' 
+  elements can reference this box for their position */
+  position: relative;
+}
+
+/* Ids, for each card, so we can set a different background color 
+for each card */
+#cat {
+  background-color: rgb(207, 241, 204);
+}
+
+#dog {
+  background-color: rgb(241, 204, 233);
+}
+
+#bird {
+  background-color: rgb(247, 205, 151);
+}
+
+#bear {
+  background-color: rgb(247, 241, 151);
+}
+
+/* The rule for the name of the animal (e.g.: 'The Cat') */
+.name {
+  font-size: 5rem;
+  margin: 0;
+  font-weight: 900;
+  /* Set position to absolute -> 'lift' the element out of the box, 
+  so we can move it to a position where we want it */
+  position: absolute;
+  margin-left: 35px;
+}
+
+/* The rule for the sound of the animal (e.g.: 'Meow') */
+.sound {
+  font-size: 4rem;
+  margin: 0;
+  font-weight: 900;
+  position: absolute;
+  /* when using position absolute, we can use 'left', 'right', 'top' 
+  and 'bottom', these can be used to position an object inside a box
+  (e.g.: bottom: 0; -> position object at the bottom of the box
+  right: 0; -> position object at the right side of the box) */
+  bottom: 10px;
+  left: 15%;
+  /* Here the z-index is 1, so it is above all elements without a 
+  z-index but below a z-index of 1 (like the header) */
+  z-index: 1;
+}
+
+/* Rules to set the font color of each box 
+(could also be done with a new class but I didn't want to :P)*/
+/* Selector: #cat .name --> get the element with the class 'name' 
+that is inside the box with the id 'cat' */
+#cat .name,
+#cat .sound {
+  color: rgb(18, 94, 18);
+}
+
+#dog .name,
+#dog .sound {
+  color: rgb(255, 45, 85);
+}
+
+#bird .name,
+#bird .sound {
+  color: rgb(247, 111, 0);
+}
+
+#bear .name,
+#bear .sound {
+  color: rgb(247, 202, 0);
+}
+
+/* The rule setting the image position and size in the box */
+/* Selector .card img --> Get the img-Element inside the box with 
+class 'card' */
+.card img {
+  max-height: 100%;
+  position: absolute;
+  left: 10%;
+}
